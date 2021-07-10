@@ -142,6 +142,26 @@ $ git config --global alias.last 'log -1 HEAD'
 这样，可以轻松地看到最后一次提交：
 $ git last
 
+Mac删除GitHub的某个文件夹步骤
+
+1、将github的项目拉取到本地
+$ git pull origin master
+2、删除相应到文件夹
+$ git rm -r --cached xxx    //xxx指对应到文件夹名称
+3、重新提交项目到本地仓库上
+$ git commit -m "注释内容"
+4、将项目从本地提交到GitHub上
+git config --global http.sslBackend "openssl"
+git config --global --add remote.origin.proxy ""
+$ git push
+
+# macos LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443
+git config --global http.sslBackend "openssl"
+方法2.若第一种方法输入命令不管用，可以尝试先输入下边命令，然后在执行第一种方法的命令。
+步骤一：
+git config --global http.sslBackend "openssl"
+步骤二：
+git config --global --add remote.origin.proxy ""
 
 
 
